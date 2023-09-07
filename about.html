@@ -11,14 +11,14 @@ multilingual: true
 
 <!-- English Version -->
 <div class="en post-container">
-    {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
-    {{ about_zh | markdownify }}
+    {% capture about_en %}{% include about/en.md %}{% endcapture %}
+    {{ about_en | markdownify }}
 </div>
 
 <!-- indonesia Version -->
-<div class="In post-container">
-    {% capture about_en %}{% include about/en.md %}{% endcapture %}
-    {{ about_en | markdownify }}
+<div class="id post-container">
+    {% capture about_id %}{% include about/id.md %}{% endcapture %}
+    {{ about_id | markdownify }}
 </div>
 
 
