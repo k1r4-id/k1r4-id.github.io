@@ -4,7 +4,7 @@ title:      "CozyHosting : HTB Writeup"
 subtitle:   "CozyHosting Easy Machine"
 date:       2023-09-08
 author:     "Hux"
-header-img: "img/post-bg-ios9-web.jpg"
+header-img: "img/cozyhosting-750x410.jpg"
 catalog:    true
 tags:
     - HTB
