@@ -5,7 +5,7 @@ Selain itu, saya juga pernah mengikuti beberapa kursus di [Sekolah Hacker](https
 
 Saat ini saya sedang menempuh studi Sarjana Teknik Komputer, Kejuruan Keamanan Siber di [Universitas Amikom](https://amikom.ac.id/)。
 
-##### Appearence
+##### Appearence 
 
 - [React Labs: What We've Been Working On – June 2022][12] · React Blog
 - [React Without Memo][11] · [React Conf 2021](https://conf.reactjs.org/)
