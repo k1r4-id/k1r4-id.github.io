@@ -1,12 +1,10 @@
-Hey, I am Huang, Xuan (a.k.a. _@huxpro_). I worked on the [React Team](https://beta.reactjs.org/community/meet-the-team#react-core) at <del>Facebook</del>Meta.
+Hey, I am Ikhsan, Bima (a.k.a. _@k1r4). I am a CTF Player, Bug Hunter, Penetration Tester and Cyber Security Researcher.
 
-I considered myself as a hybrid between a software engineer specifically into the programming languages theories and implementations domain (i.e. compiler, type system, type-based formal verification, virtual machine, runtime systems, garbage collection), and a creative technologiest deeply caring about many humanistic aspects (e.g. visual, sound, interaction) in UI and HCI in general.
+Overall, my interest in capture the flag activities, bug bounties, and finding loopholes in system security shows a strong interest in the world of cyber security and technology. These activities helped me develop important skills in protecting digital systems and infrastructure from potential threats, as well as providing opportunities to participate in an active and collaborative cybersecurity community..
 
-I also worked on the [Hermes JavaScript Engine](https://hermesengine.dev/), some other projects under the [Reality Labs (Research)](https://tech.fb.com/ar-vr/), and [ReasonML](https://reasonml.github.io/) (now [ReScript](https://rescript-lang.org/)) efforts at Meta (Facebook).
+Apart from that, I have also taken several courses at [Sekolah Hacker](https://sekolahdigitalcilsy.com/), [Pentester Labs](https://pentesterlab.com/profile/k1r44), and I'm also active in CTF on [Hackthebox](https://app.hackthebox.com/profile/394808).
 
-In the past, I worked on [Alitrip (Fliggy)](https://www.alitrip.com/) mobile and web apps under the [Alibaba Group](https://en.wikipedia.org/wiki/Alibaba_Group), found and lead front-end infrastructure team at an unicorn startup company [Beijing Weiying (a.k.a. WePiao, now acquired by Maoyan)](https://www.crunchbase.com/organization/beijing-weiying-technology), and helped [Ele.me (now acquired by Alibaba)](https://en.wikipedia.org/wiki/Ele.me) to upgrade their mobile web site into [the first influential PWA (progressive web app) in China](https://medium.com/elemefe/upgrading-ele-me-to-progressive-web-app-2a446832e509).
-
-I studied BA, Digital Media Art at [Communication University of China](https://en.wikipedia.org/wiki/Communication_University_of_China) and MS, Computer Science (with a focus on programming languages, mainly supervised by [Prof. Matthew Fluet](https://www.cs.rit.edu/~mtf/)) at [Rochester Institute of Technology](https://en.wikipedia.org/wiki/Rochester_Institute_of_Technology).
+I am currently studying S1 of Computer Engineering, Cybersecurity Vocational at [Amikom University](https://amikom.ac.id/)
 
 ##### Appearence
 
