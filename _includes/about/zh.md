@@ -1,6 +1,8 @@
-Hallo, Saya Ikhsan, Bima (a.k.a. _@k1r4). Saya adalah CTF Player, Bug Hunter, Penetration Tester and Cyber Security Researcher.。
+Hallo, Saya Ikhsan, Bima (a.k.a. _@k1r4). Saya adalah CTF Player, Bug Hunter, Penetration Tester and Cyber Security Researcher。
 
-Selain itu, saya juga pernah mengikuti beberapa kursus di [Sekolah Hacker](https://sekolahdigitalcilsy.com/), [Pentester Labs](https://pentesterlab.com/profile/k1r44), dan saya juga aktif di CTF pada [Hackthebox](https://app.hackthebox.com/profile/394808).。
+Secara keseluruhan, ketertarikan saya terhadap kegiatan Capture the Flag, Bug Bounties Hunter, dan pencarian celah keamanan sistem menunjukkan ketertarikan yang kuat terhadap dunia keamanan cyber dan teknologi. Kegiatan-kegiatan ini membantu saya mengembangkan keterampilan penting dalam melindungi sistem dan infrastruktur digital dari potensi ancaman, serta memberikan peluang untuk berpartisipasi dalam komunitas keamanan siber yang aktif dan kolaboratif。
+
+Selain itu, saya juga pernah mengikuti beberapa kursus di [Sekolah Hacker](https://sekolahdigitalcilsy.com/), [Pentester Labs](https://pentesterlab.com/profile/k1r44), dan saya juga aktif di CTF pada [Hackthebox](https://app.hackthebox.com/profile/394808)。
 
 
 Saat ini saya sedang menempuh studi Sarjana Teknik Komputer, Kejuruan Keamanan Siber di [Universitas Amikom](https://amikom.ac.id/)。
