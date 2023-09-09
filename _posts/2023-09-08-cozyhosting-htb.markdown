@@ -15,7 +15,7 @@ tags:
 
 Seperti biasa kita mencari informasi tentang target seperti IP Address, Services dll menggunakan `NMAP`
 
-![nmap-chozyhosting](img/in-post/nmap-chozyhosting.png)
+![nmap-chozyhosting](https://k1r4-id.github.io/img/in-post/nmap-chozyhosting.png)
 
 
 #### 新的设备特性
