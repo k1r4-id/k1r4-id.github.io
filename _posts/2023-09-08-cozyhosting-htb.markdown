@@ -39,7 +39,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 22.45 seconds
 ```
 
->Disini kita mendapatkan port 80 dengan services `HTTP` dan port 23 dengan service `SSH` terbuka
+>Disini saya mendapatkan port 80 dengan services `HTTP` dan port 23 dengan service `SSH` terbuka
 
 Setelah itu saya mengunjungi port `HTTP` yang terbuka, akan tetapi saya tidak menemukan fungsi yang menarik, hanya ada halaman login saja
 
