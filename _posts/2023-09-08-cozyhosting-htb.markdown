@@ -14,7 +14,7 @@ tags:
 ## Enumeration
 
 Seperti biasa kita mencari informasi tentang target seperti IP Address, Services dll menggunakan `NMAP`
-```sh
+``sh
 ┌[parrot]─[19:56-09/09]─[~]
 └╼k1r4$nmap -sC -sV 10.129.78.19
 Starting Nmap 7.93 ( https://nmap.org ) at 2023-09-09 19:56 WIB
@@ -35,7 +35,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 22.45 seconds
-```
+``
 
 >Disini kita mendapatkan port 80 dengan services `HTTP` dan port 23 dengan service `SSH` terbuka
 
