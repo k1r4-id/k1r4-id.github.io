@@ -14,8 +14,7 @@ tags:
 ## Enumeration
 
 Seperti biasa kita mencari informasi tentang target seperti IP Address, Services dll menggunakan `NMAP`
-
-![nmap-chozyhosting](https://k1r4-id.github.io/img/in-post/nmap-chozyhosting.png)
+![Screenshot at 2023-09-09 19-57-09](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/79f2d77a-4423-46fb-9535-6f6ba7fa7af8)
 
 
 #### 新的设备特性
