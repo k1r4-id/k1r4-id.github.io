@@ -43,7 +43,7 @@ Setelah itu saya mengunjungi port `HTTP` yang terbuka, akan tetapi saya tidak me
 
 ![Screenshot at 2023-09-09 20-37-02](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/e07e9ac7-541b-46c8-aa28-66bc70be13ad)
 
-Saya pikir dihalaman login saya akan menemukan celah SQL Injection, ternyata tidak 😿 oleh karena itu saya akan fuzzing directory web tersebut menggunakan `Dirsearch` untuk mendapatkan informasi directory apa saja yang dapat kita teliti
+Saya pikir dihalaman login saya akan menemukan celah SQL Injection, ternyata tidak 😿 oleh karena itu saya akan melakukan fuzzing directory web tersebut menggunakan `Dirsearch` untuk mendapatkan informasi directory apa saja yang dapat kita teliti
 
 ```sh
 ┌[parrot]─[20:55-09/09]─[~]
@@ -88,9 +88,9 @@ Disitu dijelaskan bahwa ada beberapa endpoint yang menimbulkan adanya `kerentana
 - /env - provides access to the configuration environment
 - /restart - restarts the application
 - /heapdump - Builds and returns a heap dump from the JVM used by our application
-> Akan tetapi ada beberapa endpoint yang tidak ada dari hasil output `dirsearch`
+> Ada beberapa endpoint yang tidak ada dari hasil output `dirsearch`
 
-Kemudian saya teliti semua endpoint yang kita dapat dari hasil `dirsearch` , pada endpoint /actuator/env terdapat credential yang terekspos, akan tetapi credentials tersebut tidak terbaca
+Kemudian saya teliti semua endpoint yang kita dapat dari hasil `dirsearch` , pada endpoint `/actuator/env` terdapat credential yang terekspos, akan tetapi credentials tersebut tidak terbaca
 
 ```sh
 ┌[parrot]─[21:13-09/09]─[~]
@@ -118,6 +118,32 @@ Kemudian saya teliti semua endpoint yang kita dapat dari hasil `dirsearch` , pad
           "value": "******"
      .........
 ```
+Selain itu saya menemukan endpoint yang cukup unik `/actuator/sessions`, saya menemukan sessions yang sedang login pada endpoint tersebut
+
+```sh
+┌[parrot]─[21:19-09/09]─[~]
+└╼k1r4$curl http://cozyhosting.htb/actuator/sessions | jq
+
+{
+  "364AB622979A017B18A35E1421E82350": "kanderson",
+  "A0DD82349EABA00EE08B83ABA269CC06": "UNAUTHORIZED"
+}
+```
+
+## Exploit
+
+Saya mencoba memanfaatkan sessions tersebut dengan melakukan manipulasi sesi menggnakan `inspect element`
+![Screenshot at 2023-09-09 21-36-57](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/b530d0ec-e4ed-460a-88ae-4fb9a1e11d98)
+> Dan kalian bisa login ke dashboard admin menggunakan credential apapun, karena celah login pada web ini hanya pada cookie sessions leaked
+
+Disini saya hanya menemukan form untuk koneksi ssh
+![Screenshot at 2023-09-09 21-32-47](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/f0f08f86-1fff-444e-9aec-336b02ef1761)
+
+Pada awalnya saya menemukan kejanggalan saat meneliti form tersebut, disini saya menemukan adanya celah `comand injection` pada parameter username
+![Screenshot at 2023-09-09 21-51-40](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/d65a0897-e4bb-404c-a27f-cbcf5076101d)
+
+
+
 
 
 #### 新的设备特性
