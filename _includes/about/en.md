@@ -6,21 +6,12 @@ Apart from that, I have also taken several courses at [Sekolah Hacker](https://s
 
 I am currently studying S1 of Computer Engineering, Cybersecurity Vocational at [Amikom University](https://amikom.ac.id/)
 
-##### Reference
+##### My Reference
 
-- [HTB Writeup : CozyHosting Machine]
-- [GTFOBins]
-- [Learn Python Programing Language]
-- [Exploit Databases]
-- [Hacktricks Web Vulnerabilities]
-- [Binary Exploit Training]
-- [Portswigger Web Security Labs]
-
-
-[1]: //k1r4-id.github.io/2023/09/08/cozyhosting-htb/
-[2]: https://gtfobins.github.io/
-[3]: https://www.learnpython.org/
-[4]: https://www.exploit-db.com/
-[5]: https://book.hacktricks.xyz/pentesting-web/
-[6]: https://github.com/ashemery/exploitation-course
-[7]: https://portswigger.net/web-security
+- [HTB Writeup : CozyHosting Machine](https://k1r4-id.github.io/2023/09/08/cozyhosting-htb/)
+- [GTFOBins](https://gtfobins.github.io/)
+- [Learn Python Programing Language](https://www.learnpython.org/)
+- [Exploit Databases](https://www.exploit-db.com/)
+- [Hacktricks Web Vulnerabilities](https://book.hacktricks.xyz/pentesting-web/)
+- [Binary Exploit Training](https://github.com/ashemery/exploitation-course)
+- [Portswigger Web Security Labs](https://portswigger.net/web-security)
