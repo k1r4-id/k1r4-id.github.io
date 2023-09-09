@@ -39,6 +39,87 @@ Nmap done: 1 IP address (1 host up) scanned in 22.45 seconds
 
 >Disini kita mendapatkan port 80 dengan services `HTTP` dan port 23 dengan service `SSH` terbuka
 
+Setelah itu saya mengunjungi port `HTTP` yang terbuka, akan tetapi saya tidak menemukan fungsi yang menarik, hanya ada halaman login saja
+
+![Screenshot at 2023-09-09 20-37-02](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/e07e9ac7-541b-46c8-aa28-66bc70be13ad)
+
+Saya pikir dihalaman login saya akan menemukan celah SQL Injection, ternyata tidak 😿 oleh karena itu saya akan fuzzing directory web tersebut menggunakan `Dirsearch` untuk mendapatkan informasi directory apa saja yang dapat kita teliti
+
+```sh
+┌[parrot]─[20:55-09/09]─[~]
+└╼k1r4$dirsearch -u http://cozyhosting.htb/ --exclude-sizes=0B
+
+  _|. _ _  _  _  _ _|_    v0.4.3.post1
+ (_||| _) (/_(_|| (_| )
+
+Extensions: php, aspx, jsp, html, js | HTTP method: GET | Threads: 25 | Wordlist size: 11460
+
+Output File: /home/k1r4/Downloads/reports/http_cozyhosting.htb/__23-09-09_20-55-30.txt
+
+Target: http://cozyhosting.htb/
+
+[20:55:30] Starting: 
+[20:55:51] 400 -  435B  - /\..\..\..\..\..\..\..\..\..\etc\passwd
+[20:55:53] 400 -  435B  - /a%5c.aspx
+[20:55:55] 200 -  634B  - /actuator
+[20:55:56] 200 -    5KB - /actuator/env
+[20:55:56] 200 -   10KB - /actuator/mappings
+[20:55:56] 200 -   15B  - /actuator/health
+[20:55:56] 200 -   95B  - /actuator/sessions
+[20:55:57] 401 -   97B  - /admin
+[20:55:58] 200 -  124KB - /actuator/beans
+[20:56:41] 500 -   73B  - /error
+[20:57:03] 200 -    4KB - /login
+
+Task Completed
+
+```
+Disini saya menemukan Directory yang cukup unik yaitu /actuator
+>Saya menacari informasi digoogle tentang apa itu actuator, dan saya menemukan bahwa actuator adalah bagian dari springboot framework java "Spring Boot Actuator adalah sub-proyek dari Spring Boot Framework. Ini mencakup sejumlah fitur tambahan yang membantu kami memantau dan mengelola aplikasi Spring Boot. Ini berisi titik akhir actuator (tempat di mana sumber daya berada). Kita dapat menggunakan endpoint HTTP dan JMX untuk mengelola dan memantau aplikasi Spring Boot. Jika kita ingin mendapatkan fitur siap produksi dalam suatu aplikasi, kita harus actuator aktuator Spring Boot"
+
+Dan saya mencari tau lebih lanjut apakah ada exploit untuk actuator ini, lalu saya mendapatkan referensi tentang kerentanan actuator di [hacktricks.xy](https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/spring-actuators)
+
+Disitu dijelaskan bahwa ada beberapa endpoint yang menimbulkan adanya `kerentanan`
+- /dump - displays a dump of threads (including a stack trace)
+- /trace - displays the last several HTTP messages (which could include session identifiers)
+- /logfile - outputs the contents of the log file
+- /shutdown - shuts the application down
+- /mappings - shows all of the MVC controller mappings
+- /env - provides access to the configuration environment
+- /restart - restarts the application
+- /heapdump - Builds and returns a heap dump from the JVM used by our application
+> Akan tetapi ada beberapa endpoint yang tidak ada dari hasil output `dirsearch`
+
+Kemudian saya teliti semua endpoint yang kita dapat dari hasil `dirsearch` , pada endpoint /actuator/env terdapat credential yang terekspos, akan tetapi credentials tersebut tidak terbaca
+
+```sh
+┌[parrot]─[21:13-09/09]─[~]
+└╼k1r4$curl http://cozyhosting.htb/actuator/env | jq
+
+{
+  "activeProfiles": [],
+  "propertySources": [
+    {
+      "name": "server.ports",
+      "properties": {
+        "local.server.port": {
+          "value": "******"
+        }
+      }
+    },
+    {
+      "name": "servletContextInitParams",
+      "properties": {}
+    },
+    {
+      "name": "systemProperties",
+      "properties": {
+        "java.specification.version": {
+          "value": "******"
+     .........
+```
+
+
 #### 新的设备特性
 
 * iPhone 6s 与 6s Plus 拥有 **“[3D Touch](http://www.apple.com/iphone-6s/3d-touch/)”**，这是一个全新的硬件特性，它可以侦测压力，是一个可以让你拿到手指压力数据的 API
