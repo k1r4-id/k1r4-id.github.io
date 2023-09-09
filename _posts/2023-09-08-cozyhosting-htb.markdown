@@ -13,6 +13,8 @@ tags:
 
 ## Enumeration
 
+### Penggunaan NMAP
+
 Seperti biasa kita mencari informasi tentang target seperti IP Address, Services dll menggunakan `NMAP`
 ```sh
 ┌[parrot]─[19:56-09/09]─[~]
@@ -45,6 +47,8 @@ Setelah itu saya mengunjungi port `HTTP` yang terbuka, akan tetapi saya tidak me
 
 Saya pikir dihalaman login saya akan menemukan celah SQL Injection, ternyata tidak 😿 oleh karena itu saya akan melakukan fuzzing directory web tersebut menggunakan `Dirsearch` untuk mendapatkan informasi directory apa saja yang dapat kita teliti
 
+### Penggunaan Dirsearch
+
 ```sh
 ┌[parrot]─[20:55-09/09]─[~]
 └╼k1r4$dirsearch -u http://cozyhosting.htb/ --exclude-sizes=0B
@@ -74,6 +78,8 @@ Target: http://cozyhosting.htb/
 Task Completed
 
 ```
+### Spring Boot Actuator
+
 Disini saya menemukan Directory yang cukup unik yaitu /actuator
 >Saya menacari informasi digoogle tentang apa itu actuator, dan saya menemukan bahwa actuator adalah bagian dari springboot framework java "Spring Boot Actuator adalah sub-proyek dari Spring Boot Framework. Ini mencakup sejumlah fitur tambahan yang membantu kami memantau dan mengelola aplikasi Spring Boot. Ini berisi titik akhir actuator (tempat di mana sumber daya berada). Kita dapat menggunakan endpoint HTTP dan JMX untuk mengelola dan memantau aplikasi Spring Boot. Jika kita ingin mendapatkan fitur siap produksi dalam suatu aplikasi, kita harus actuator aktuator Spring Boot"
 
