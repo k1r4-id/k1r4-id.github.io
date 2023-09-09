@@ -290,7 +290,7 @@ user.txt
 josh@cozyhosting:~$ cat user.txt 
 3cbc3707136b3032418291fc37534790
 ```
-##PRIVILAGE ESCALATION
+## PRIVILAGE ESCALATION
 
 Setelah melakukan berbagai cara, saya mendapatkan vuln untuk mendapatkan akses shell user `root`
 ```sh
