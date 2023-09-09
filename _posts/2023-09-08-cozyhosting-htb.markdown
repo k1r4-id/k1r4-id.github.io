@@ -45,9 +45,10 @@ Setelah itu saya mengunjungi port `HTTP` yang terbuka, akan tetapi saya tidak me
 
 ![Screenshot at 2023-09-09 20-37-02](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/e07e9ac7-541b-46c8-aa28-66bc70be13ad)
 
-Saya pikir dihalaman login saya akan menemukan celah SQL Injection, ternyata tidak 😿 oleh karena itu saya akan melakukan fuzzing directory web tersebut menggunakan `Dirsearch` untuk mendapatkan informasi directory apa saja yang dapat kita teliti
 
 ### Penggunaan Dirsearch
+
+Saya pikir dihalaman login saya akan menemukan celah SQL Injection, ternyata tidak 😿 oleh karena itu saya akan melakukan fuzzing directory web tersebut menggunakan `Dirsearch` untuk mendapatkan informasi directory apa saja yang dapat kita teliti
 
 ```sh
 ┌[parrot]─[20:55-09/09]─[~]
