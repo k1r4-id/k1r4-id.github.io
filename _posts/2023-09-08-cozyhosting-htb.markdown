@@ -14,7 +14,29 @@ tags:
 ## Enumeration
 
 Seperti biasa kita mencari informasi tentang target seperti IP Address, Services dll menggunakan `NMAP`
-![Screenshot at 2023-09-09 19-57-09](https://github.com/k1r4-id/k1r4-id.github.io/assets/62828015/79f2d77a-4423-46fb-9535-6f6ba7fa7af8)
+```sh
+┌[parrot]─[19:56-09/09]─[~]
+└╼k1r4$nmap -sC -sV 10.129.78.19
+Starting Nmap 7.93 ( https://nmap.org ) at 2023-09-09 19:56 WIB
+Nmap scan report for 10.129.78.19
+Host is up (0.10s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT      STATE    SERVICE VERSION
+22/tcp    open     ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 4356bca7f2ec46ddc10f83304c2caaa8 (ECDSA)
+|_  256 6f7a6c3fa68de27595d47b71ac4f7e42 (ED25519)
+80/tcp    open     http    nginx 1.18.0 (Ubuntu)
+|_http-title: Did not follow redirect to http://cozyhosting.htb
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+1216/tcp  filtered etebac5
+25735/tcp filtered unknown
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 22.45 seconds
+```
+
 >Disini kita mendapatkan port 80 dengan services `HTTP` dan port 23 dengan service `SSH` terbuka
 
 #### 新的设备特性
