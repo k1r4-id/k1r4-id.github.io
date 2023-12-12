@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "NMAP CheatSheet"
-subtitle:   "NMAP CheatSheet"
+title:      "Nmap CheatSheet"
+subtitle:   "Nmap CheatSheet"
 date:       2023-12-11
 author:     "k1r4"
 header-img: "img/COZYHOSTING-HTB.webp"
