@@ -4,7 +4,7 @@ title:      "Nmap CheatSheet"
 subtitle:   "Nmap CheatSheet"
 date:       2023-12-11
 author:     "k1r4"
-header-img: "img/COZYHOSTING-HTB.webp"
+header-img: "img/nmap-vulnerability-scan-696x398.webp"
 catalog:    true
 tags:
     - HTB
