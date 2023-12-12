@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      "CozyHosting : HTB Writeup"
-subtitle:   "CozyHosting Easy Machine"
-date:       2023-09-08
+title:      "NMAP CheatSheet"
+subtitle:   "NMAP CheatSheet"
+date:       2023-12-11
 author:     "k1r4"
 header-img: "img/COZYHOSTING-HTB.webp"
 catalog:    true
