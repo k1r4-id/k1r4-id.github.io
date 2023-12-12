@@ -7,8 +7,8 @@ author:     "k1r4"
 header-img: "img/nmap-vulnerability-scan-696x398.webp"
 catalog:    true
 tags:
-    - HTB
-    - CTF
+    - Nmap
+    - Tools
 ---
 
 ## Scanning Options
