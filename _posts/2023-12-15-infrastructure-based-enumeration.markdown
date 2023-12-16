@@ -76,7 +76,7 @@ tags:
 
 |**Command**|**Description**|
 |-|-|
-| `telnet <FQDN/IP> 25` |  |
+| `telnet <FQDN/IP> 25` | To establish a telnet connection to a mail server on port 25 (SMTP). |
 
 
 ##### IMAP/POP3
