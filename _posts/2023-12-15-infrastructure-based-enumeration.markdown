@@ -4,7 +4,7 @@ title:      "Infrastructure Based Enumeration"
 subtitle:   "Infrastructure Based Enumeration"
 date:       2023-12-15
 author:     "k1r4"
-header-img: "img/nmap-vulnerability-scan-696x398.webp"
+header-img: "img/footprinting.webp"
 catalog:    true
 tags:
     - Nmap
