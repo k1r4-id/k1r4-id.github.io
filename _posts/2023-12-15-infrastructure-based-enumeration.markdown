@@ -23,8 +23,8 @@ tags:
 
 
 ##### FTP
-|**Command**|**Description**|
-|-|-|
+| **Command** | **Description** |
+|---|----|
 | `ftp <FQDN/IP>` | Interact with the FTP service on the target. |
 | `nc -nv <FQDN/IP> 21` | Interact with the FTP service on the target. |
 | `telnet <FQDN/IP> 21` | Interact with the FTP service on the target. |
