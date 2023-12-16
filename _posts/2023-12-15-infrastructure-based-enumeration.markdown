@@ -13,6 +13,7 @@ tags:
 
 ## Infrastructure-based Enumeration
 
+
 | **Command** | **Description** |
 |---|----|
 | `curl -s https://crt.sh/\?q\=<target-domain>\&output\=json \| jq .` | Certificate transparency. |
@@ -20,6 +21,8 @@ tags:
 
 
 ## FTP
+
+
 | **Command** | **Description** |
 |---|----|
 | `ftp <FQDN/IP>` | Interact with the FTP service on the target. |
@@ -30,6 +33,8 @@ tags:
 
 
 ## SMB
+
+
 | **Command** | **Description** |
 |---|----|
 | `smbclient -N -L //<FQDN/IP>` | Null session authentication on SMB. |
@@ -42,6 +47,8 @@ tags:
 
 
 ## NFS
+
+
 | **Command** | **Description** |
 |---|----|
 | `showmount -e <FQDN/IP>` | Show available NFS shares. |
@@ -50,6 +57,8 @@ tags:
 
 
 ## DNS
+
+
 | **Command** | **Description** |
 |---|----|
 | `dig ns <domain.tld> @<nameserver>` | NS request to the specific nameserver. |
@@ -60,12 +69,16 @@ tags:
 
 
 ## SMTP
+
+
 | **Command** | **Description** |
 |---|----|
 | `telnet <FQDN/IP> 25` |  |
 
 
 ## IMAP/POP3
+
+
 | **Command** | **Description** |
 |---|----|
 | `curl -k 'imaps://<FQDN/IP>' --user <user>:<password>` | Log in to the IMAPS service using cURL. |
@@ -73,7 +86,10 @@ tags:
 | `openssl s_client -connect <FQDN/IP>:pop3s` | Connect to the POP3s service. |
 
 
+
 ## SNMP
+
+
 | **Command** | **Description** |
 |---|----|
 | `snmpwalk -v2c -c <community string> <FQDN/IP>` | Querying OIDs using snmpwalk. |
@@ -82,18 +98,24 @@ tags:
 
 
 ## MySQL
+
+
 | **Command** | **Description** |
 |---|----|
 | `mysql -u <user> -p<password> -h <FQDN/IP>` | Login to the MySQL server. |
 
 
 ### MSSQL
+
+
 | **Command** | **Description** |
 |---|----|
 | `mssqlclient.py <user>@<FQDN/IP> -windows-auth` | Log in to the MSSQL server using Windows authentication. |
 
 
 ## IPMI
+
+
 | **Command** | **Description** |
 |---|----|
 | `msf6 auxiliary(scanner/ipmi/ipmi_version)` | IPMI version detection. |
@@ -101,6 +123,8 @@ tags:
 
 
 ## Linux Remote Management
+
+
 | **Command** | **Description** |
 |---|----|
 | `ssh-audit.py <FQDN/IP>` | Remote security audit against the target SSH service. |
@@ -110,6 +134,8 @@ tags:
 
 
 ## Windows Remote Management
+
+
 | **Command** | **Description** |
 |---|----|
 | `rdp-sec-check.pl <FQDN/IP>` | Check the security settings of the RDP service. |
@@ -118,6 +144,8 @@ tags:
 | `wmiexec.py <user>:"<password>"@<FQDN/IP> "<system command>"` | Execute command using the WMI service. |
 
 ## Oracle TNS
+
+
 | **Command** | **Description** |
 |---|----|
 | `./odat.py all -s <FQDN/IP>` | Perform a variety of scans to gather information about the Oracle database services and its components. |
