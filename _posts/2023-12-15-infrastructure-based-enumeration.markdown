@@ -18,13 +18,12 @@ tags:
 | `curl -s https://crt.sh/\?q\=<target-domain>\&output\=json \| jq .` | Certificate transparency. |
 | `for i in $(cat ip-addresses.txt);do shodan host $i;done` | Scan each IP address in a list using Shodan. |
 
-----
 ## Host-based Enumeration
 
 
 ##### FTP
 | **Command** | **Description** |
-|---|----|
+|-|-|
 | `ftp <FQDN/IP>` | Interact with the FTP service on the target. |
 | `nc -nv <FQDN/IP> 21` | Interact with the FTP service on the target. |
 | `telnet <FQDN/IP> 21` | Interact with the FTP service on the target. |
