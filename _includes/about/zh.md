@@ -1,4 +1,4 @@
-Hallo, Saya Ikhsan, Bima (a.k.a. _@k1r4). Saya adalah CTF Player, Bug Hunter, Penetration Tester and Cyber Security Researcher。
+Hallo, Saya Akira Tsuyoi (a.k.a. _@k1r4). Saya adalah CTF Player, Bug Hunter, Penetration Tester and Cyber Security Enthusiast。
 
 Secara keseluruhan, ketertarikan saya terhadap kegiatan Capture the Flag, Bug Bounty Hunter, dan Penetration Testing menunjukkan ketertarikan yang kuat terhadap dunia keamanan cyber dan teknologi. Kegiatan-kegiatan ini membantu saya mengembangkan keterampilan penting dalam melindungi sistem dan infrastruktur digital dari potensi ancaman, serta memberikan peluang untuk berpartisipasi dalam komunitas keamanan siber yang aktif dan kolaboratif。
 
