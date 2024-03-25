@@ -22,7 +22,7 @@ tags:
 | `smbclient -U user \\\\<ip>\\SHARENAME`             | Uses smbclient to connect to an SMB share using a specified user. |
 | `python3 smbserver.py -smb2support CompData /home/<nameofuser>/Documents/` | Uses smbserver.py to create a share on a linux-based attack host. Can be useful when needing to transfer files from a target to an attack host. |
 
----
+
 ## Password Mutations
 
 | **Command**| **Description**|
@@ -32,7 +32,7 @@ tags:
 | `./username-anarchy -i /path/to/listoffirstandlastnames.txt` | Users username-anarchy tool in conjunction with a pre-made list of first and last names to generate a list of potential username. |
 | `curl -s https://fileinfo.com/filetypes/compressed \| html2text \| awk '{print tolower($1)}' \| grep "\." \| tee -a compressed_ext.txt` | Uses Linux-based commands curl, awk, grep and tee to download a list of file extensions to be used in searching for files that could contain passwords. |
 
----
+
 ## Remote Password Attacks
 
 | **Command**| **Description**|
@@ -91,7 +91,7 @@ tags:
 | `python3.9 firefox_decrypt.py`                               | Runs Firefox_decrypt.py to decrypt any encrypted credentials stored by Firefox. Program will run using python3.9. |
 | `python3 lazagne.py browsers`                                | Runs Lazagne.py browsers module using Python 3.               |
 
-----
+
 ## Cracking Passwords
 
 | **Command**| **Description**|
@@ -114,4 +114,4 @@ tags:
 | `file GZIP.gzip`                                             | Uses the Linux-based file tool to gather file format information. |
 | `for i in $(cat rockyou.txt);do openssl enc -aes-256-cbc -d -in GZIP.gzip -k $i 2>/dev/null \| tar xz;done` | Script that runs a for-loop to extract files from an archive. |
 
----
+
