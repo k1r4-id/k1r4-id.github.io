@@ -1,3 +1,17 @@
+---
+layout:     post
+title:      "Password Atack Cheatseet"
+subtitle:   "Password Atack Cheatseet"
+date:       2024-03-26
+author:     "k1r4"
+header-img: "img/footprinting.webp"
+catalog:    true
+tags:
+    - password attack
+    - web attack
+---
+
+
 ## Connecting to Target
 
 | **Command**| **Description**|
