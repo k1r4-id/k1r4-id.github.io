@@ -91,7 +91,7 @@ tags:
 | `python3.9 firefox_decrypt.py`                               | Runs Firefox_decrypt.py to decrypt any encrypted credentials stored by Firefox. Program will run using python3.9. |
 | `python3 lazagne.py browsers`                                | Runs Lazagne.py browsers module using Python 3.               |
 
-
+----
 ## Cracking Passwords
 
 | **Command**| **Description**|
