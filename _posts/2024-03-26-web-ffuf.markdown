@@ -1,3 +1,18 @@
+---
+layout:     post
+title:      "Atacking Web Applications with Ffuf"
+subtitle:   "Atacking Web Applications with Ffuf"
+date:       2024-03-26
+author:     "k1r4"
+header-img: "img/footprinting.webp"
+catalog:    true
+tags:
+    - ffuf
+    - web pentest
+---
+
+
+
 # Ffuf
 
 | **Command**   | **Description**   |
