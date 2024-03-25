@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Password Atack Cheatseet"
-subtitle:   "Password Atack Cheatseet"
+title:      "Password Atack"
+subtitle:   "Password Atack"
 date:       2024-03-26
 author:     "k1r4"
 header-img: "img/footprinting.webp"
