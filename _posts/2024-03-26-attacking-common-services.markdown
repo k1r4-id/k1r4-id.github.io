@@ -2,7 +2,7 @@
 layout:     post
 title:      "Attacking Common Services"
 subtitle:   "Attacking Common Services"
-date:       2024-03-01
+date:       2024-03-26
 author:     "k1r4"
 header-img: "img/footprinting.webp"
 catalog:    true
