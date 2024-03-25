@@ -1,3 +1,19 @@
+---
+layout:     post
+title:      "Pivoting, Tunelling & Forwading"
+subtitle:   "Pivoting, Tunelling & Forwading"
+date:       2024-03-26
+author:     "k1r4"
+header-img: "img/footprinting.webp"
+catalog:    true
+tags:
+    - Pivoting
+    - Tunnelin
+    - Forwading
+    - Web Pentest
+---
+
+
 | Command                                                      | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | `ifconfig`                                                     | Linux-based command that displays all current network configurations of a system. |
