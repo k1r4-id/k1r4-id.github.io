@@ -1,3 +1,17 @@
+---
+layout:     post
+title:      "Information Gathering Web"
+subtitle:   "Information Gathering Web"
+date:       2024-03-26
+author:     "k1r4"
+header-img: "img/footprinting.webp"
+catalog:    true
+tags:
+    - information gathering
+    - web pentest
+---
+
+
 ## WHOIS
 
 | **Command** | **Description** |
