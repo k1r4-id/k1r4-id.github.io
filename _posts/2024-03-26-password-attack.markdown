@@ -115,4 +115,3 @@ tags:
 | `file GZIP.gzip`                                             | Uses the Linux-based file tool to gather file format information. |
 | `for i in $(cat rockyou.txt);do openssl enc -aes-256-cbc -d -in GZIP.gzip -k $i 2>/dev/null \| tar xz;done` | Script that runs a for-loop to extract files from an archive. |
 
-----
