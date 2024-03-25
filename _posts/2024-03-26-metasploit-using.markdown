@@ -1,3 +1,17 @@
+---
+layout:     post
+title:      "Using Metasploit Framework"
+subtitle:   "Using Metasploit Framework"
+date:       2024-03-26
+author:     "k1r4"
+header-img: "img/footprinting.webp"
+catalog:    true
+tags:
+    - metasploit
+    - payloads
+---
+
+
 ## MSFconsole Commands 
 
 | **Command**        | **Description**                                                  |
